@@ -1,0 +1,114 @@
+{
+  "logger": {
+    "level": "debug",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.5",
+    "hosts": [
+      { "host": "elasticsearch" }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "api": {
+    "services": {
+      "pip": { "url": "http://pip:4200" },
+      "libpostal": { "url": "http://libpostal:4400" },
+      "placeholder": { "url": "http://placeholder:4100" },
+      "interpolation": { "url": "http://interpolation:4300" }
+    },
+    "defaultParameters": {
+      "focus.point.lat": 35.65809922,
+      "focus.point.lon": 139.7413575
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "geonames": {
+      "datapath": "/data/geonames",
+      "countryCode": "JP"
+    },
+    "openstreetmap": {
+      "download": [
+        { "sourceURL": "https://download.geofabrik.de/asia/japan-latest.osm.pbf" }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [{
+        "filename": "japan-latest.osm.pbf"
+      }]
+    },
+    "openaddresses": {
+      "datapath": "/data/openaddresses",
+      "files": [
+        "jp/aichi.csv",
+        "jp/akita.csv",
+        "jp/aomori.csv",
+        "jp/chiba.csv",
+        "jp/ehime.csv",
+        "jp/fukui.csv",
+        "jp/fukuoka.csv",
+        "jp/fukushima.csv",
+        "jp/gifu.csv",
+        "jp/gunma.csv",
+        "jp/hiroshima.csv",
+        "jp/hokkaido.csv",
+        "jp/hyogo.csv",
+        "jp/ibaraki.csv",
+        "jp/ishikawa.csv",
+        "jp/iwate.csv",
+        "jp/kagawa.csv",
+        "jp/kagoshima.csv",
+        "jp/kanagawa.csv",
+        "jp/kochi.csv",
+        "jp/kumamoto.csv",
+        "jp/kyoto.csv",
+        "jp/mie.csv",
+        "jp/miyagi.csv",
+        "jp/miyazaki.csv",
+        "jp/nagano.csv",
+        "jp/nagasaki.csv",
+        "jp/nara.csv",
+        "jp/niigata.csv",
+        "jp/oita.csv",
+        "jp/okayama.csv",
+        "jp/okinawa.csv",
+        "jp/osaka.csv",
+        "jp/saga.csv",
+        "jp/saitama.csv",
+        "jp/shiga.csv",
+        "jp/shimane.csv",
+        "jp/shizuoka.csv",
+        "jp/tochigi.csv",
+        "jp/tokushima.csv",
+        "jp/tokyo.csv",
+        "jp/tottori.csv",
+        "jp/toyama.csv",
+        "jp/wakayama.csv",
+        "jp/yamagata.csv",
+        "jp/yamaguchi.csv",
+        "jp/yamanashi.csv"
+      ]
+    },
+    "polyline": {
+      "datapath": "/data/polylines",
+      "files": [ "extract.0sv" ]
+    },
+    "whosonfirst": {
+      "datapath": "/data/whosonfirst",
+      "countryCode": "JP",
+      "importPostalcodes": true,
+      "importPlace": [ "85632429" ]
+    }
+  }
+}
